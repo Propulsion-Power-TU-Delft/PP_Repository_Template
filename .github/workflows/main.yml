@@ -1,9 +1,9 @@
-name: ci
+name: Create docker image
 
 on:
   push:
     branches:
-      - "master"
+      - "feature_regressiontests"
 
 jobs:
   build:
@@ -23,3 +23,19 @@ jobs:
         with:
           push: true
           tags: ${{ vars.DOCKERHUB_USERNAME }}/ppteamrepo:latest
+
+      -
+        name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          platforms: linux/amd64,linux/arm64
+          file: docker/Dockerfile
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/regressiontester:latest
+      
+      -
+        name: Push image to GHCR
+        run: |
+          docker buildx imagetools create \
+            --tag ghcr.io/${{ vars.DOCKERHUB_USERNAME }}/regressiontester:latest \
+            ${{ vars.DOCKERHUB_USERNAME }}/regressiontester:latest
