@@ -42,6 +42,9 @@ def main():
 
     test_list.append(simpleMLP)
 
+    # Add more regression tests ...
+
+    
     # Run all regression tests in regression test list.
     pass_list = [test.run_test() for test in test_list]
 
