@@ -23,7 +23,7 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64
-          file: docker/Dockerfile
+          file: ./docker/Dockerfile
           tags: ${{ vars.DOCKERHUB_USERNAME }}/regressiontester:latest
       
       -
