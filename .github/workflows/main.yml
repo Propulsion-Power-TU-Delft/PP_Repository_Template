@@ -17,13 +17,6 @@ jobs:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - 
-        name: Set up Docker Buildx
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/ppteamrepo:latest
-
       -
         name: Build and push image
         uses: docker/build-push-action@v6
