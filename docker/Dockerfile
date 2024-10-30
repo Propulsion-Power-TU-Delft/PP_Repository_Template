@@ -1,6 +1,6 @@
 # Base image
 FROM ubuntu:latest
-
+ENV LANG C.UTF-8
 # Install all programs and modules necessary for your running your code.
 
 RUN apt-get update && apt-get install -y \
