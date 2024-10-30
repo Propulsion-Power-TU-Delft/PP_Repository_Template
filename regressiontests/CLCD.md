@@ -30,3 +30,21 @@ After defining your unit tests and regression tests, you can run the [workflow f
 After completing step 1, you can now locally test the integrity of your code. If you work on your own or only with a few people, this may be sufficient to prevent things from breaking. However, if your team is large and you want to ensure the functionality of your code, you may want to take it a step further. For this, you can use GitHub Actions.
 
 GitHub Actions enables the use of scripted actions when pushing changes to your repository. For example, running a set of regression tests when opening a pull request. 
+
+
+step 1: install docker, create acount
+step 2: docker.com -> account settings -> personal access tokens -> generate new token -> give name, read,write,delete permission -> generate, copy to password manager!
+step 3: github repository page->repository settings->security:secrets and variables->actions
+Define Variable:
+Variables->new repository variable:
+Name: DOCKERHUB_USERNAME
+Value: your docker ID
+
+Define secret:
+Secrets->new repository secret:
+Name: DOCKERHUB_TOKEN
+Value: your docker token from step 2
+
+step 4: github repository page->repository settings->code and automation:Actions->General->Workflow permissions->Read and write permissions
+
+step 5: 
