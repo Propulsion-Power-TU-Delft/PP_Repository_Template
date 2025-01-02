@@ -12,7 +12,7 @@ This template repository was made for Master students and PhD candidates in orde
 
 In this section, give a short summary of your work. It can be a summary of your thesis work for example. If so, make sure you give links to relevant literature (such as your thesis). Here is a [link](https://www.markdownguide.org/cheat-sheet/) to some general tips on writing in markdown format. 
 
-TODO: Add some information regarding collaborative code development using git here.
+For some basic tips and tricks for collaborative code development using git, check out [these instructions](GitInstructions.md).
 
 
 ## Related work and contributions
