@@ -5,6 +5,7 @@ on:
     branches:
       - 'develop'
       - 'main'
+      - "feature_regressiontests"
   pull_request:
     branches:
       - 'develop'
