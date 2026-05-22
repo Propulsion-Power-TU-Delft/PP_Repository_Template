@@ -1,25 +1,16 @@
-# Base image
+# Docker setup file used to prepare the docker container which you can use to run automated regression tests with GitHub actions.
 FROM ubuntu:latest
-ENV LANG C.UTF-8
-# Install all programs and modules necessary for your running your code.
+ENV LANG=C.UTF-8
 
+# System command for downloading all required programs needed to run your program.
 RUN apt-get update && apt-get install -y \
     python3 \
-    pkg-config \
-    python3-pip \
-    git \ 
-    build-essential \ 
-    ccache \ 
-# Python modules
-  && python3 -m pip install \
-    numpy=1.26.4 \
-    scikit-learn=1.2.2 \
-    tensorflow=2.15.0 \ 
-  && rm -rf /var/lib/apt/lista/* \
-  && update-alternatives --install /usr/bin/python python /usr/bin/python3 10 \
-  && /usr/sbin/update-ccache-symlinks \
-  && echo 'export PATH="/usr/lib/ccache:$PATH"' | tee -a ~/.bashrc
+    git \
+    build-essential \
+    ccache && \ 
+    apt-get update && \
+    apt-get install -y python3-virtualenv
 
-COPY docker/runCode.sh /runCode.sh
-
-ENTRYPOINT /runCode.sh
+# Bash script used to run regression tests
+COPY runCode.sh /runCode.sh
+ENTRYPOINT ["/runCode.sh"]
